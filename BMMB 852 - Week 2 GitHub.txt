@@ -1,4 +1,5 @@
 #Chosen organism: bubo_bubo
+#The organism is Bubo bubo (or Uhu) - which is the Eurasian Eagle-Owl. This is one of the largest owl species, recognized for its large orange eyes and prominent ear tufts. It inhabits a wide range across Europe, Asia, and parts of North Africa, typically in rocky landscapes and forests. These birds weigh between three to nine pounds and have an impressive wingspan of more than six feet. Their diet includes small mammals (rats,...), birds (hunt woodpeckers, herons,...), and larger animals like hares. They can live up to 20 years, with some reaching 60 years. These birds are beneficial to farmers for controlling rodent populations.
 
 #A. Data download and unzip:
 
