@@ -1,6 +1,7 @@
 Your submission should be a link to a GitHub folder that contains a script and a report written in Markdown, all committed to your repository.
 
 Part 1: Write a script
+code work-week04.sh
 
 Lecture: AI powered ScriptingLinks to an external site.
 
