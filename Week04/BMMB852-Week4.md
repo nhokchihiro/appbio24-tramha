@@ -146,7 +146,7 @@ Definition: Messenger RNA is the intermediate molecule between DNA and protein. 
 
 Discussion: 
 
- ![hierarchy image]([URL](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna-ontology.png)).
+ ![hierarchy image](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna-ontology.png).
 
 Here is [the folder](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week04) containing my script and the report.
 
