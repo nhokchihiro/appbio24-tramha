@@ -5,34 +5,42 @@ Your submission should be a link to a GitHub folder that contains a script and a
 1. To generate the new Bash script:
 
 ```
+# generate new bash script
 code work-week04.sh
 ```
 
 2. To run the script on terminal:
-Run your script on your original data and verify that it works. You were also assigned to review someone else's report.
 
 ```
+# run the script file
 bash work-week04.sh
 ```
 
-![my result](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/my_species.png).
+a. Results with my species: *Bubo bubo*
+![my result](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/my_species.png)
 
-Now, run your script on their data. If the script is reusable, you can replace your variables with theirs and run the script. 
+[My script file](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/work-week04.sh)
 
-![Jessica Nicole Eckard](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/Jessica_species.png).
+b. Results with peer-review 1 (Jessica Nicole Eckard): *Salmo trutta*
+![Jessica Nicole Eckard](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/Jessica_species.png)
 
-![Md. Mahib Ullah](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/Md_species.png).
+[Script file 1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/peer-review/work-week04_Jessica.sh)
 
-Add more functions to the script that also print some of their results. Were you able to reproduce their results? Make a note in the report.
+c. Results with peer-review 2 (Md. Mahib Ullah): *Nannospalax galili*
+![Md. Mahib Ullah](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/Md_species.png)
 
-Commit the script to your repository.
+[Script file 2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/peer-review/work-week04_Md.sh)
 
 # Part 2: Make use of ontologies
 
-Lecture: Sequence OntologyLinks to an external site.
+1. To update and install the packages:
 
+a. Activate Bioinfo
+```
+conda activate bioinfo 
+```
 
-
+b. Bio Package
 ```
 # Update the bio package
 pip install bio --upgrade
@@ -44,6 +52,7 @@ bio --download
 bio explain gene
 ```
 
+c. Genescape tool
 ```
 # Install genescape
 pip install genescape
@@ -52,27 +61,35 @@ pip install genescape
 genescape web
 ```
 
-```
-conda activate bioinfo 
-```
+2. Use Bio to explain mRNA ontology:
+
+a. Normal command:
 
 ```
+# explain mRNA
 bio explain mrna
 ```
 
+Results:
+ ![mRNA](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mRNA.png)
+
+
+b. Command to explain as a lineage:
+
 ```
-# mrna
+# explain mRNA as a lineage
 bio explain mrna --lineage
 ```
 
-Choose a feature type from the GFF file and look up its definition in the sequence ontology.
-Find both the parent terms and children nodes of the term.
-Provide a short discussion of what you found.
+Results:
+ ![mRNA_lineage](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna_lineage.png)
 
-mrna SO:0000234
-Parent terms:  SO:0000233  mature_transcript
-
-Children nodes:
+3. Answers:
+   
+**mRNA SO:**   0000234
+**Definition:** Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns.
+**Parent terms:**  SO:0000233  mature_transcript
+**Children nodes:**
 - riboswitch (part_of)
 - mrna_with_frameshift 
 - attenuator (part_of)
@@ -92,11 +109,9 @@ Children nodes:
 - circular_mrna 
 - recoded_mrna
 
-Definition: Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns.
+**Discussion:** It is interesting that there are many types of mRNA which I never learned before.
 
-Discussion: 
+![hierarchy image](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna-ontology.png).
 
- ![hierarchy image](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna-ontology.png).
-
-Here is [the folder](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week04) containing my script and the report.
+Here is [my folder](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week04) containing the script and the Markdown file.
 
