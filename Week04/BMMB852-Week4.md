@@ -34,38 +34,7 @@ c. Results with peer-review 2 (Md. Mahib Ullah): *Nannospalax galili*
 
 # Part 2: Make use of ontologies
 
-**1. To update and install the packages:**
-
-a. Activate Bioinfo
-
-```
-conda activate bioinfo 
-```
-
-b. Bio Package
-
-```
-# Update the bio package
-pip install bio --upgrade
-
-# Download the latest database
-bio --download
-
-# Use bio to explain a term
-bio explain gene
-```
-
-c. Genescape tool
-
-```
-# Install genescape
-pip install genescape
-
-# Run genescape
-genescape web
-```
-
-**2. Use Bio to explain mRNA ontology:**
+**Use Bio to explain mRNA ontology:**
 
 a. Normal command:
 
