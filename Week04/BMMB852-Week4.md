@@ -1,5 +1,3 @@
-Your submission should be a link to a GitHub folder that contains a script and a report written in Markdown, all committed to your repository.
-
 # Part 1: Write a script
 
 1. To generate the new Bash script:
@@ -109,7 +107,7 @@ Results:
 - circular_mrna 
 - recoded_mrna
 
-**Discussion:** It is interesting that there are many types of mRNA which I never learned before.
+**Discussion:** It is interesting that there are many types of mRNA which I never learned before (e.g. monocistronic_mrna, capped_mrna,...). It somehow determines the a important role of mRNA in understanding gene expression and the functional genomics. And this ontology is definitely beneficial for us in undertsanding well the definition of all genomic terms.
 
 ![hierarchy image](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week04/Images/mrna-ontology.png).
 
