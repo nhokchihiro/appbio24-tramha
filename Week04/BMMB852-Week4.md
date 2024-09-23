@@ -92,8 +92,11 @@ Results:
 **3. Answers:**
    
 ***mRNA SO:***   0000234
+
 ***Definition:*** Messenger RNA is the intermediate molecule between DNA and protein. It includes UTR and coding sequences. It does not contain introns.
+
 ***Parent terms:***  SO:0000233  mature_transcript
+
 ***Children nodes:***
 - riboswitch (part_of)
 - mrna_with_frameshift 
