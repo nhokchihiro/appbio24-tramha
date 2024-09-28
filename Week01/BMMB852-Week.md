@@ -19,7 +19,6 @@ e. What version is your samtools program? => 1.20
 
 ```
 samtools --version
-
 ```
 
 *Answer:*
