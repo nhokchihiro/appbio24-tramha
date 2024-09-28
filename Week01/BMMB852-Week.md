@@ -2,35 +2,9 @@
 a. Set up your computer => DONE
 b. Follow the installation instructions => DONE
 c. How can you tell that you were successful? => It appeared as below when I tested.
-hpbichtram@Trams-MacBook-Pro ~
-$ conda activate bioinfo
-
-(bioinfo) 
-hpbichtram@Trams-MacBook-Pro ~
-$ 
-(bioinfo) 
-hpbichtram@Trams-MacBook-Pro ~
-$ doctor.py
-
-Doctor! Doctor! Give me the news.
-Checking symptoms ...
-bwa           ... OK
-datamash      ... OK
-fastqc -h     ... OK
-hisat2        ... OK
-featureCounts ... OK
-efetch        ... OK
-esearch       ... OK
-samtools      ... OK
-fastq-dump    ... OK
-bowtie2       ... OK
-bcftools      ... OK
-seqtk         ... OK
-seqkit        ... OK
-bio           ... OK
-fastq-dump -X 1 -Z SRR1553591 ... OK
-You are doing well, Majesty!
-(bioinfo) 
+```
+conda activate bioinfo
+```
 
 d. Can you run the samtools program? => YES (I run head command for example)
 hpbichtram@Trams-MacBook-Pro ~/Desktop
