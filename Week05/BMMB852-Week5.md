@@ -1,7 +1,8 @@
 Genome: [Caenorhabditis elegans](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/6239/)
+
 RefSeq:  GCF_000002985.6
 
-## 1. Select a genome, then download the corresponding FASTA file.
+### 1. Select a genome, then download the corresponding FASTA file.
 
 
 a. The size of the file: 97M
