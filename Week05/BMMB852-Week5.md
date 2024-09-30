@@ -113,54 +113,62 @@ Read length = 150 bp
 
 Ratio of reads and size of new FASTA file (with paired-end sequencing) : 1519500 
 
-$\frac{\text{3 342 900}}{\text{2 files * 1.1GB}} = 1 519 500 $
+$\frac{\text{3 342 900}}{\text{2 files * 1.1GB}} = 1 519 500 $\
+
 
 **a. Saccharomyces cerevisiae (yeast):** ~ 12 000 000 base pairs (bp)
 
-*Size of FASTA file:* ~ 12.3 MB (0.1 MB for other parts of the file)
+a.1/ Size of FASTA file: ~ 12.3 MB (0.1 MB for other parts of the file)
 
-*Number of FASTQ reads needed for 30x:* 1 200 000
+a.2/ Number of FASTQ reads needed for 30x: 1 200 000
+
 
 > $\frac{\text{12 000 000 x 30}}{\text{150 * 2}} = 1 200 000$
 
-*Size of the FASTQ files before compression:* 808 MB
+a.3/ Size of the FASTQ files before compression: 808 MB
 
-> $\frac{\text{1 200 000}}{\text{1 519 500}} = 0.789 GB ~ 808 MB$
 
-*Size of the FASTQ files after compression:* 152.5 MB
+$\frac{\text{1 200 000}}{\text{1 519 500}} = 0.789 GB ~ 808 MB$
 
-> $\frac{\text{808}}{\text{5.36}} = 152.5 MB$
+a.4/ Size of the FASTQ files after compression: 152.5 MB
+
+
+$\frac{\text{808}}{\text{5.36}} = 152.5 MB$
 
 **b. Drosophila melanogaster:** ~ 180 000 000 bp
 
-*Size of FASTA file:* 183 MB (3 MB for other parts of the file)
+b.1/ Size of FASTA file: 183 MB (3 MB for other parts of the file)
 
-*Number of FASTQ reads needed for 30x:* 18 000 000
+b.2/ Number of FASTQ reads needed for 30x: 18 000 000
 
-> $\frac{\text{180 000 000 x 30}}{\text{150 * 2}} = 18 000 000 GB$
 
-*Size of the FASTQ files before compression:* 11.85 GB
+$\frac{\text{180 000 000 x 30}}{\text{150 * 2}} = 18 000 000 GB$
 
-> $\frac{\text{18 000 000}}{\text{1 519 500}} = 11.85 GB$
+b.3/ Size of the FASTQ files before compression: 11.85 GB
 
-*Size of the FASTQ files after compression:* 2.24 GB
 
-> $\frac{\text{11.85}}{\text{5.36}} = 2.24 GB$
+$\frac{\text{18 000 000}}{\text{1 519 500}} = 11.85 GB$
+
+b.4/ Size of the FASTQ files after compression: 2.24 GB
+
+
+$\frac{\text{11.85}}{\text{5.36}} = 2.24 GB$
 
 **c. Homo sapiens:** ~ 3 200 000 000 bp
 
-*Size of FASTA file:* 3.23 GB (0.03 GB for other parts of the file)
+c.1/ Size of FASTA file: 3.23 GB (0.03 GB for other parts of the file)
 
-*Number of FASTQ reads needed for 30x:* 320 000 000
+c.2/ Number of FASTQ reads needed for 30x: 320 000 000
 
-> $\frac{\text{3 200 000 000 x 30}}{\text{150 * 2}} = 320 000 000$
 
-*Size of the FASTQ files before compression:* 210.6 GB
+$\frac{\text{3 200 000 000 x 30}}{\text{150 * 2}} = 320 000 000$
+
+c.3/ Size of the FASTQ files before compression: 210.6 GB
 
 
 $\frac{\text{320 000 000}}{\text{1 519 500}} = 210.6 GB$
 
-*Size of the FASTQ files after compression:* 39.7 GB
+c.4/ Size of the FASTQ files after compression: 39.7 GB
 
 
 $\frac{\text{210.6}}{\text{5.36}} = 39.7 GB$
