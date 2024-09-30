@@ -117,37 +117,38 @@ Ratio of reads and size of new FASTA file: 1519500 (=3342900/(2 files*1.1GB)).
 
 Size of FASTA file: ~ 12.3 MB (0.1 MB for other parts of the file)
 
-Number of FASTQ reads needed for 30x: 
+Number of FASTQ reads needed for 30x: 1 200 000
 (12 000 000 x 30) / 150 / 2 = 1 200 000
 
-Size of the FASTQ files before compression: 
+Size of the FASTQ files before compression: 808 MB
 1 200 000 / 1 519 500 = 0.789 GB ~ 808 MB
 
-Size of the FASTQ files after compression:
+Size of the FASTQ files after compression: 152.5 MB
 808/5.36 = 152.5 MB
 
 **b. Drosophila melanogaster:** ~ 180 000 000 bp
 
 Size of FASTA file: 183 MB (3 MB for other parts of the file)
 
-Number of FASTQ reads needed for 30x: 
+Number of FASTQ reads needed for 30x: 18 000 000
 (180 000 000 x 30) / 150 / 2 = 18 000 000
 
-Size of the FASTQ files before compression:
+Size of the FASTQ files before compression: 11.85 GB
 18 000 000 / 1 519 500 = 11.85 GB
 
-Size of the FASTQ files after compression:
+Size of the FASTQ files after compression: 2.24 GB
 11.85/5.36 = 2.24 GB
 
 **c. Homo sapiens:** ~ 3 200 000 000 bp
 
 Size of FASTA file: 3.23 GB (0.03 GB for other parts of the file)
 
-Number of FASTQ reads needed for 30x: 
+Number of FASTQ reads needed for 30x: 320 000 000
 (3 200 000 000 x 30) / 150 / 2 = 320 000 000
 
-Size of the FASTQ files before compression:
+Size of the FASTQ files before compression: 210.6 GB
 320 000 000 / 1 519 500 = 210.6 GB
 
-Size of the FASTQ files after compression:
-210.6/5.36 = 39.7 GB
+Size of the FASTQ files after compression: 39.7 GB
+>> $\frac{\text{210.6}}{\text{5.36}} = 39.7 GB$
+
