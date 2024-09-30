@@ -14,7 +14,7 @@ Size of the FASTQ file is:
 -rw-------  1 hpbichtram  staff    97M Sep 29 23:48 ncbi_dataset/data/GCF_000002985.6/GCF_000002985.6_WBcel235_genomic.fna
 ```
 
-**b. The total size of the genome:** 100,286,401
+**b. The total size of the genome:** 100 286 401
 
 ```
 + echo 'Total size of the genome is at column sum_len:'
