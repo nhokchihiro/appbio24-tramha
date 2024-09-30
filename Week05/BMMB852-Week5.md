@@ -92,13 +92,17 @@ total 858648
 -rw-r--r--  1 hpbichtram  staff   210M Sep 29 23:16 wgsim_read2.fq.gz
 ```
 
-**e. Discuss whether you could get the same coverage with different parameter settings (read length vs. read number):**
+**e. Discuss whether I could get the same coverage with different parameter settings (read length vs. read number):**
 
-> Since we have the formula below (with paired-end sequencing):
+Since we have the formula below (with paired-end sequencing):
 
 >> $Coverage = \frac{\text{Read Length} \times \text{Number of Reads} \times 2}{\text{Genome Size}}$
 
 We can get the same coverage with modified parameter settings:
+
+  e.1/ When we increase the read length size, we are required to decrease the number of reads. This modification can reduce the file sizes and computational analysis steps, but it is just suitable with some sequencing techniques. For examples, depending on the application, Illumina's read can be from 50bp to 300bp. So we need to be carefully when increase the read length sizes. And due to the long reads, the accurate level also reduces.
+
+  e.2/ When we shorten the read length size and increase the number of reads, we can have fewer sequencing errors for the same coverage. However, a larger number of reads will lead to a extremely huge size of FASTA files and require more computational efforts and memory capability of the computer/terminal to run.
 
 
 ### 3. How much data would be generated when covering the Yeast,  the Drosophila or the Human genome at 30x?
