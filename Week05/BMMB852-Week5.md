@@ -93,9 +93,10 @@ total 858648
 ```
 
 **e. Discuss whether you could get the same coverage with different parameter settings (read length vs. read number):**
-Since we have the formula below:
 
-$Coverage = \frac{\text{Read Length} \times \text{Number of Reads}}{\text{Genome Size}}$
+> Since we have the formula below (with paired-end sequencing):
+
+>> $Coverage = \frac{\text{Read Length} \times \text{Number of Reads} \times 2}{\text{Genome Size}}$
 
 We can get the same coverage with modified parameter settings:
 
