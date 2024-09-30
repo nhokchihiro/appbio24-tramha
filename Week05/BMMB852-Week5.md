@@ -226,9 +226,9 @@ Since genome size of Caenorhabditis elegans is 100 286 401 base pairs (bp) ~ 100
 
 Read length = 150 bp 
 
-Ratio of reads and size of new FASTA file (with paired-end sequencing) : 1519500 
+Ratio of reads and size of new FASTA file (with paired-end sequencing) : 3039000 
 
-$\frac{\text{3 342 900}}{\text{2 files * 1.1GB}} = 1 519 500 $
+$\frac{\text{3 342 900}}{\text{1.1GB}} = 3 039 000 $
 
 When compressing a file, its size decreases by ~5.36 times ($=\frac{\text{1.1GB}}{\text{210MB}})$.
 
@@ -241,15 +241,15 @@ a.2/ Number of FASTQ reads needed for 30x: 1 220 000 (each file)
 
 > $\frac{\text{12 200 000 x 30}}{\text{150 * 2}} = 1 220 000$
 
-a.3/ Size of the FASTQ files before compression: 822.27 MB (each file)
+a.3/ Size of the FASTQ files before compression: 410.6 MB (each file)
 
 
-$\frac{\text{1 220 000}}{\text{1 519 500}} = 0.803 GB ~ 822.26 MB$
+$\frac{\text{1 220 000}}{\text{3 039 000}} = 0.401 GB ~ 410.6 MB$
 
-a.4/ Size of the FASTQ files after compression: 153.4 MB (each file)
+a.4/ Size of the FASTQ files after compression: 76.6 MB (each file)
 
 
-$\frac{\text{822.27}}{\text{5.36}} = 153.4 MB$
+$\frac{\text{410.6}}{\text{5.36}} = 76.6 MB$
 
 **b. Drosophila melanogaster:** ∼180 Mb
 
@@ -260,15 +260,15 @@ b.2/ Number of FASTQ reads needed for 30x: 18 000 000 (each file)
 
 $\frac{\text{180 000 000 x 30}}{\text{150 * 2}} = 18 000 000$
 
-b.3/ Size of the FASTQ files before compression: 11.85 GB (each file)
+b.3/ Size of the FASTQ files before compression: 5.92 GB (each file)
 
 
-$\frac{\text{18 000 000}}{\text{1 519 500}} = 11.85 GB$
+$\frac{\text{18 000 000}}{\text{3 039 000}} = 5.92 GB$
 
-b.4/ Size of the FASTQ files after compression: 2.21 GB (each file)
+b.4/ Size of the FASTQ files after compression: 1.1 GB (each file)
 
 
-$\frac{\text{11.85}}{\text{5.36}} = 2.21 GB$
+$\frac{\text{5.92}}{\text{5.36}} = 1.1 GB$
 
 **c. Homo sapiens:** ~ 3.2 Gb (3.2 billion base pairs) (in a haploid set of chromosomes)
 
@@ -279,13 +279,22 @@ c.2/ Number of FASTQ reads needed for 30x: 320 000 000 (each file)
 
 $\frac{\text{3 200 000 000 x 30}}{\text{150 * 2}} = 320 000 000$
 
-c.3/ Size of the FASTQ files before compression: 210.6 GB (each file)
+c.3/ Size of the FASTQ files before compression: 105.3 GB (each file)
 
 
-$\frac{\text{320 000 000}}{\text{1 519 500}} = 210.6 GB$
+$\frac{\text{320 000 000}}{\text{3 039 000}} = 105.3 GB$
 
-c.4/ Size of the FASTQ files after compression: 39.29 GB (each file)
+c.4/ Size of the FASTQ files after compression: 19.65 GB (each file)
 
 
-$\frac{\text{210.6}}{\text{5.36}} = 39.29 GB$
+$\frac{\text{105.3}}{\text{5.36}} = 19.65 GB$
+
+**Summary:**
+
+| Species                 | Genome Size         | FASTA File Size       | Read Numbers for 30x Coverage | FASTQ Before Compression | FASTQ After Compression |
+|-------------------------|---------------------|-----------------------|------------------------------|-------------------------|------------------------|
+| Yeast (Saccharomyces)   | 12.2 Mb               | ~12.3 MB              | 1 220 000 (each file)          | 410.6 MB (each file)                 | 76.6 MB (each file)          |
+| Fruit Fly (Drosophila)  | 180 Mb              | ~183 MB               | 18 000 000 (each file)           | 5.92 GB (each file)                 | 1.1 GB (each file)               |
+| Human                   | 3.2 Gb              | ~3.23 GB              | 320 000 000 (each file)          | 105.3 GB (each file)                  | 19.65 GB (each file)               |
+
 
