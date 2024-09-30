@@ -5,7 +5,7 @@ RefSeq:  GCF_000002985.6
 ### 1. Select a genome, then download the corresponding FASTA file.
 
 
-**a. The size of the file:** 97M
+**a. The size of the file:** 97MB
 
 ```
 + echo 'Size of the FASTQ file is:'
@@ -70,7 +70,7 @@ reads/wgsim_read1.fq  FASTQ   DNA   3,342,900  501,435,000      150      150    
 reads/wgsim_read2.fq  FASTQ   DNA   3,342,900  501,435,000      150      150      150
 ```
 
-**c. These FASTQ files size:** 1.1G each file
+**c. These FASTQ files size:** 1.1GB each file
 
 ```
 + echo 'These FASTA files size are:'
@@ -81,7 +81,7 @@ total 5481816
 -rw-r--r--  1 hpbichtram  staff   1.1G Sep 29 23:16 wgsim_read2.fq
 ```
 
-**d. Compress the files and report how much space that saves:** 210M each file
+**d. Compress the files and report how much space that saves:** 210MB each file
 
 ```
 + echo 'These compressed FASTA files'\'' size are:'
@@ -93,11 +93,17 @@ total 858648
 ```
 
 **e. Discuss whether you could get the same coverage with different parameter settings (read length vs. read number):**
+Since we have the formula below:
+\[
+\text{Coverage} = \frac{(\text{Read Length} \times \text{Number of Reads})}{\text{Genome Size}}
+\]
+
+We can get the same coverage with modified parameter settings:
 
 
 ### 3. How much data would be generated when covering the Yeast,  the Drosophila or the Human genome at 30x?
 
-When compressing a file, its size decreases by ~5.3 times (=1.1GB/210MB).
+When compressing a file, its size decreases by ~5.36 times (=1.1GB/210MB).
 
 Read length = 150 bp 
 
@@ -114,7 +120,7 @@ Size of the FASTQ files before compression:
 1 200 000 / 1 519 500 = 0.789 GB ~ 808 MB
 
 Size of the FASTQ files after compression:
-808/5.3 = 152.5 MB
+808/5.36 = 152.5 MB
 
 **b. Drosophila melanogaster:** ~ 180 000 000 bp
 
@@ -127,7 +133,7 @@ Size of the FASTQ files before compression:
 18 000 000 / 1 519 500 = 11.85 GB
 
 Size of the FASTQ files after compression:
-11.85/5.3 = 2.24 GB
+11.85/5.36 = 2.24 GB
 
 **c. Homo sapiens:** ~ 3 200 000 000 bp
 
@@ -140,4 +146,4 @@ Size of the FASTQ files before compression:
 320 000 000 / 1 519 500 = 210.6 GB
 
 Size of the FASTQ files after compression:
-210.6/5.3 = 39.7 GB
+210.6/5.36 = 39.7 GB
