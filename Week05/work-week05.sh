@@ -20,6 +20,9 @@ L=150
 R1=reads/wgsim_read1.fq
 R2=reads/wgsim_read2.fq
 
+# Link to the new FASTQ file
+LINK2=reads/
+
 # ------ NO CHANGES NECESSARY BELOW THIS LINE ------
 
 # Download the genome
@@ -66,7 +69,17 @@ wgsim -N ${N} -1 ${L} -2 ${L} -r 0 -R 0 -X 0 \
 # Run read statistics
 seqkit stats ${R1} ${R2}
 
+#  Get size of the new files
+echo " "
+echo "These FASTA files size are:"
+ls -lh ${LINK2}
+
 # Compress the files
 gzip ${R1} ${R2}
+
+# Size of new compressed files
+echo " "
+echo "These compressed FASTA files' size are:"
+ls -lh ${LINK2}
 
 echo "Thank you."
