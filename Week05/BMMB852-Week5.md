@@ -230,7 +230,7 @@ Ratio of reads and size of new FASTA file (with paired-end sequencing) : 1519500
 
 $\frac{\text{3 342 900}}{\text{2 files * 1.1GB}} = 1 519 500 $
 
-When compressing a file, its size decreases by ~5.36 times ($=\frac{\text{1.1GB}}{\text{210MB}}$.
+When compressing a file, its size decreases by ~5.36 times ($=\frac{\text{1.1GB}}{\text{210MB}})$.
 
 **a. Saccharomyces cerevisiae (yeast):** ~ 12.2 Mb
 
