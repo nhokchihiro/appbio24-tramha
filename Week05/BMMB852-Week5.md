@@ -122,7 +122,7 @@ Since we have the formula below (with paired-end sequencing):
 
 To calculate read numbers with the read length of 150 bp (for example, Illumina MiSeq or NextSeq1000/2000) and paired-end sequencing for target coverage of 10x:
 
-> $Read numbers = \frac{\text{Genome Size} \times \text{10}}{\text{150 bp}  \times 2} = \frac{\text{100 286 401} \times \text{10}}{\text{150 bp}  \times 2} = ~ 3342900 $
+> $\text{Read numbers} = \frac{\text{Genome Size} \times \text{10}}{\text{150 bp}  \times 2} = \frac{\text{100 286 401} \times \text{10}}{\text{150 bp}  \times 2} = ~ 3342900 $
 
 To generate the FASTA files:
 
