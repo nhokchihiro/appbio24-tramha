@@ -23,7 +23,7 @@ R2=reads/wgsim_read2.fq
 # Link to the new FASTQ file
 LINK2=reads/
 
-#Please put this file in the directory set as Desktop/week05 to get a successfully result. Thank you.
+#Please put this file in the directory set as Desktop/week05 and activate bioinfo to get a successfully result. Thank you.
 
 # ------ NO CHANGES NECESSARY BELOW THIS LINE ------
 
