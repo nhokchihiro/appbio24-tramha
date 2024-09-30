@@ -157,9 +157,11 @@ $\frac{\text{3 342 900}}{\text{2 files * 1.1GB}} = 1 519 500 $
 
 *Size of the FASTQ files before compression:* 210.6 GB
 
-> $\frac{\text{320 000 000}}{\text{1 519 500}} = 210.6 GB$
+
+$\frac{\text{320 000 000}}{\text{1 519 500}} = 210.6 GB$
 
 *Size of the FASTQ files after compression:* 39.7 GB
 
-> $\frac{\text{210.6}}{\text{5.36}} = 39.7 GB$
+
+$\frac{\text{210.6}}{\text{5.36}} = 39.7 GB$
 
