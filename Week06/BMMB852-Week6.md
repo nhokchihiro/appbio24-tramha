@@ -165,6 +165,7 @@ micromamba run -n menv multiqc -o ${PDIR2} ${PDIR2}
 ```
 
 - Evaluation:
+
   Almost all failured- and warned- issues from both files are solved, except the Per sequence GC content and Sequence Length Distribution are evaluated as Warnings.
   
   I utilized several different QC methods, including cutadapt, yet it seems that the Per sequence GC content cannot be improved more. Reasons could be due to the preparation steps or natural characteristics of this virus.
@@ -173,7 +174,7 @@ micromamba run -n menv multiqc -o ${PDIR2} ${PDIR2}
   
   These issues should be investigated more.
   
-  Overall, my QC process by fastp improved almost the crucial categories in comparing to the original FASTQ files. This is the summary - the upper image is of the original FASTQ files, the lower image is of the trimmed FASTQ files.
+  Overall, my QC process status checks by fastp improved almost the crucial categories in comparing to the original FASTQ files. This is the summary - the upper image is of the original FASTQ files, the lower image is of the trimmed FASTQ files.
 
 ![Image20](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image20.png)
   
