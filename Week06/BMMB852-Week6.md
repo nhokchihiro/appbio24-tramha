@@ -174,7 +174,7 @@ micromamba run -n menv multiqc -o ${PDIR2} ${PDIR2}
   
   These issues should be investigated more.
   
-  Overall, my QC process status checks by fastp improved almost the crucial categories in comparing to the original FASTQ files. This is the summary - the upper image is of the original FASTQ files, the lower image is of the trimmed FASTQ files.
+  Overall, my QC process by fastp improved almost the crucial categories in comparing to the original FASTQ files. This is the summary of status checks - the upper image is of the original FASTQ files, the lower image is of the trimmed FASTQ files.
 
 ![Image20](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image20.png)
   
