@@ -47,36 +47,36 @@ Summary of both files:
 **a. Evaluation of File 1:**
 - Per base sequence content: Failure - The sequence contents of A, T, C, G fluctuates strongly across the reads and there are some points the difference between A and T and G and C is more than 20% (position 9 bp, or 2 bp).
 
-![Image2]()
+![Image2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image2.png)
 
 - Per sequence GC content: Warning - The total deviations from the theoretical distribution is more than 15% but less than 30% across all reads.
 
-![Image3]()
+![Image3](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image3.png)
 
 - Overrepresented sequences: Failure - There are 11 sequences are found to appear more than 15% of the read.
 
-![Image4]()
+![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image4.png)
 
 - Adapter Content: Warning (as describe above)
 
-![Image5]()
+![Image5](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image5.png)
 
 **b. Evaluation of File 2:**
 - Per base sequence quality: Failure - The sequence quality decreases, especially at the final of the reads. Average quality scores are from 25-30.
 
-![Image6]()
+![Image6](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image6.png)
 
 - Per base sequence content: Failure - The sequence contents of A, T, C, G fluctuates, especially of the first ten bps of the reads.
 
-![Image7]()
+![Image7](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image7.png)
 
 - Per sequence GC content: Failure - Mean GC content is strongly different to the theoretical distribution, with the total of deviations is up to 30%.
 
-![Image8]()
+![Image8](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image8.png)
 
 - Adapter Content: Warning (as describe above)
 
-![Image9]()
+![Image9](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image9.png)
 
 ### 3. Improve the quality of the reads in the dataset
 
@@ -110,46 +110,46 @@ fastqc -q -o ${PDIR2} ${T1} ${T2}
 
 *Per base sequence content:* from Failure to Good
 
-![Image10]()
+![Image10](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image10.png)
 
 *Per sequence GC content:* still Warning 
 
-![Image11]()
+![Image11](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image11.png)
 
 *Overrepresented sequences:* from Failure to Good 
 
-![Image12]()
+![Image12](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image12.png)
 
 *Adapter Content:* from Warning to Good
 
-![Image13]()
+![Image13](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image13.png)
 
 *Sequence Length Distribution:* from Good to Warning
 
-![Image18]()
+![Image18](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image18.png)
 
 
 - File 2:
 
 *Per base sequence quality:* from Failure to Good 
 
-![Image14]()
+![Image14](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image14.png)
 
 *Per base sequence content:* from Failure to Good 
 
-![Image15]()
+![Image15](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image15.png)
 
 *Per sequence GC content:* from Failure to Warning
 
-![Image16]()
+![Image16](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image16.png)
 
 *Adapter Content:* from Warning to Good
 
-![Image17]()
+![Image17](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image17.png)
 
 *Sequence Length Distribution:* from Good to Warning
 
-![Image19]()
+![Image19](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image19.png)
 
 
 **b. Evaluation for final improvements of both FASTQ files:**
@@ -168,7 +168,7 @@ micromamba run -n menv multiqc -o ${PDIR2} ${PDIR2}
         These issues should be investigated more.
         Overall, my QC process by fastp improved almost the crucial categories in comparing to the original FASTQ files. This is the summary - the upper image is of the original FASTQ files, the lower image is of the trimmed FASTQ files.
 
-![Image20]()
+![Image20](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week06/Images/Image20.png)
   
 
 
