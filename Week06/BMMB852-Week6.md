@@ -2,7 +2,7 @@
 
 **Sequencing instrument:** Illumina HiSeq 2500
 
-**Title:** SRX674267 - Zaire ebolavirus genome sequencing from 2014 outbreak in Sierra Leone (The genome I selected for the read simulation assignment (Caenorhabditis elegans) does not have bad quality FASTQ. Thus I choose this organism instead). 
+**Title:** SRX674267 - Zaire ebolavirus genome sequencing from 2014 outbreak in Sierra Leone (The genome I selected for the read simulation assignment (Caenorhabditis elegans) does not have much extremely bad quality FASTQ. Most of them are single-read sequencing, and mostly published in 2024. Thus I choose this organism instead). 
 
 
 ### 1. Write a script to download data from the SRA database
