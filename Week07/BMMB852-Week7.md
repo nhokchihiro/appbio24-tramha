@@ -1,5 +1,7 @@
 This assignment requires writing a Makefile and a markdown report.
 
+Use the recommended practices in the ⭐ AI-powered MakefilesLinks to an external site. chapter to guide your work.
+
 In the previous assignments you were asked to write a scripts to simulate reads and in the second assignment yo wrote a script to obtain and trim reads for a realistic dataset.
 
 Merge both scripts into a single Makefile. The makefile should have the following targets:
