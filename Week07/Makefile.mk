@@ -1,11 +1,12 @@
-# Accession number
+# Accession number & ID
 ACC=GCF_000002985.6
+ID=WBcel235
 
 # The GFF file name.
-GFF=ncbi_dataset/data/${ACC}/GCF_000002985.6_WBcel235_genomic.fna
+GFF=ncbi_dataset/data/${ACC}/${ACC}_${ID}_genomic.fna
 
 # The name of FASTQ link
-GENOME=elegans.fa
+GENOME=genome.fa
 
 # The number of reads
 N=3342900
@@ -56,7 +57,7 @@ usage:
 	@echo "make -f Makefile.mk info          # summary information on the genome"
 	@echo "make -f Makefile.mk genome        # download the genome file and detail information"
 	@echo "make -f Makefile.mk simulate      # simulate FASTQ output"
-	@echo "make -f Makefile.mk download      # download reads from SRA"
+	@echo "make -f Makefile.mk download      # download reads from SRA, please put the SRR of paired-end sequencing"
 	@echo "make -f Makefile.mk trim          # trim the reads"
 	@echo "make -f Makefile.mk clean         # remove the downloaded files"
 	@echo "make -f Makefile.mk all_simulate  # only run the targets related to simulating FASTQ output"
@@ -69,7 +70,7 @@ info:
 
 # This is how we make the genome.
 ${GFF}:
-	datasets download genome accession ${ACC} #--include gff3,gtf,genome
+	datasets download genome accession ${ACC} --include gff3,gtf,genome
 	# Never overwrite files when unzipping!
 	unzip -n ncbi_dataset.zip
 	ln -sf ${GFF} ${GENOME} # Make a link to a simpler name
