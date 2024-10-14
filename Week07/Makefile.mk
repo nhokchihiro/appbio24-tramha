@@ -124,7 +124,7 @@ trim:
 # Cleanup the downloaded files.
 clean:
 	rm -rf ncbi_dataset/
-	rm -f md5sum.txt ncbi_dataset.zip fastp.html fastp.json README.md elegans.fa
+	rm -f md5sum.txt ncbi_dataset.zip fastp.html fastp.json README.md genome.fa
 	rm -rf reads2/
 
 # Only run the targets related to simulating FASTQ output
