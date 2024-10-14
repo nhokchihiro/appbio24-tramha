@@ -70,7 +70,28 @@ usage:
 
 ### 3. Instruction:
 
-To execute desired targets, simply call the command as **make [targets]**.
+Run the below command to see all targets:
+
+```
+make usage
+```
+
+Result:
+
+```
+Here are all targets you can run
+make info          # summary information on the genome
+make genome        # download the genome file and detail information
+make simulate      # simulate FASTQ output
+make download      # download reads from SRA
+make trim          # trim the reads
+make clean         # remove the downloaded files
+make all_simulate  # only run the targets related to simulating FASTQ output
+make all_trim      # only run the targets related to trimming the reads
+make all           # run all the targets
+```
+
+To execute desired targets, simply call the command as **make [targets]** as instruction above.
 
 **a. For example, to download the genome file:**
 
