@@ -53,15 +53,15 @@ MAKEFLAGS += --no-builtin-rules
 # Print all possible targets
 usage:
 	@echo "Here are all targets you can run"
-	@echo "make info          # summary information on the genome"
-	@echo "make genome        # download the genome file and detail information"
-	@echo "make simulate      # simulate FASTQ output"
-	@echo "make download      # download reads from SRA"
-	@echo "make trim          # trim the reads"
-	@echo "make clean         # remove the downloaded files"
-	@echo "make all_simulate  # only run the targets related to simulating FASTQ output"
-	@echo "make all_trim      # only run the targets related to trimming the reads"
-	@echo "make all           # run all the targets"
+	@echo "make -f Makefile.mk info          # summary information on the genome"
+	@echo "make -f Makefile.mk genome        # download the genome file and detail information"
+	@echo "make -f Makefile.mk simulate      # simulate FASTQ output"
+	@echo "make -f Makefile.mk download      # download reads from SRA"
+	@echo "make -f Makefile.mk trim          # trim the reads"
+	@echo "make -f Makefile.mk clean         # remove the downloaded files"
+	@echo "make -f Makefile.mk all_simulate  # only run the targets related to simulating FASTQ output"
+	@echo "make -f Makefile.mk all_trim      # only run the targets related to trimming the reads"
+	@echo "make -f Makefile.mk all           # run all the targets"
 
 # Print the summary information on the genome.
 info:
