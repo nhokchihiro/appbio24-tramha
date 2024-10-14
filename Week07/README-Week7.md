@@ -123,16 +123,22 @@ It will run both targets download and trim to generate fastqc reports upon downl
 
 ![Trim](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week07/Images/trim.png)
 
-d. C
+**d. Summary commands:**
 
-The report should explain how the makefile works and how to run it to achieve the various tasks.
-
-Have your makefile generate fastqc reports upon downloading and trimming data.
+There are three summary commands if you would like to execute the whole tasks, not each individual target.
 
 ```
-make all
+make all_simulate  # only run the targets related to simulating FASTQ output
 ```
 
+```
+make all_trim      # only run the targets related to trimming the reads
+```
 
+```
+make all           # run all the targets
+```
+
+This is the result folder after executing ***make all***. "Reads" contains the simulated reads from downloaded genome. And the fastqc reports in 2 folders report_before_fastp and report_after_fastp, respectively.
 
 ![Results](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week07/Images/Results.png)
