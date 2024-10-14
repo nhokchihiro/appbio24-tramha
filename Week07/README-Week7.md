@@ -57,15 +57,15 @@ All including targets and descriptions:
 # Print all possible targets
 usage:
 	@echo "Here are all targets you can run"
-	@echo "make info          # summary information on the genome"
-	@echo "make genome        # download the genome file and detail information"
-	@echo "make simulate      # simulate FASTQ output"
-	@echo "make download      # download reads from SRA"
-	@echo "make trim          # trim the reads"
-	@echo "make clean         # remove the downloaded files"
-	@echo "make all_simulate  # only run the targets related to simulating FASTQ output"
-	@echo "make all_trim      # only run the targets related to trimming the reads"
-	@echo "make all           # run all the targets"
+	@echo "make -f Makefile.mk info          # summary information on the genome"
+	@echo "make -f Makefile.mk genome        # download the genome file and detail information"
+	@echo "make -f Makefile.mk simulate      # simulate FASTQ output"
+	@echo "make -f Makefile.mk download      # download reads from SRA"
+	@echo "make -f Makefile.mk trim          # trim the reads"
+	@echo "make -f Makefile.mk clean         # remove the downloaded files"
+	@echo "make -f Makefile.mk all_simulate  # only run the targets related to simulating FASTQ output"
+	@echo "make -f Makefile.mk all_trim      # only run the targets related to trimming the reads"
+	@echo "make -f Makefile.mk all           # run all the targets"
 ```
 
 ### 3. Instruction:
@@ -73,7 +73,7 @@ usage:
 Run the below command to see all targets:
 
 ```
-make usage
+make -f Makefile.mk usage
 ```
 
 Result:
@@ -96,7 +96,7 @@ To execute desired targets, simply call the command as **make [targets]** as ins
 **a. For example, to download the genome file:**
 
 ```
-make genome
+make -f Makefile.mk genome
 ```
 
 Result: 
@@ -123,7 +123,7 @@ NC_001328.1 Caenorhabditis elegans mitochondrion, complete genome	13794
 **b. Or to remove all downloaded files after the above command:**
 
 ```
-make clean
+make -f Makefile.mk clean
 ```
 
 Results:
@@ -137,7 +137,7 @@ rm -rf reads2/
 **c. You can also combine two targets together:**
 
 ```
-make download trim
+make -f Makefile.mk download trim
 ```
 
 It will run both targets download and trim to generate fastqc reports upon downloading and trimming data, and put all these files in 2 folders report_before_fastp and report_after_fastp.
@@ -149,15 +149,15 @@ It will run both targets download and trim to generate fastqc reports upon downl
 There are three summary commands if you would like to execute the whole tasks, not each individual target.
 
 ```
-make all_simulate  # only run the targets related to simulating FASTQ output
+make -f Makefile.mk all_simulate  # only run the targets related to simulating FASTQ output
 ```
 
 ```
-make all_trim      # only run the targets related to trimming the reads
+make -f Makefile.mk all_trim      # only run the targets related to trimming the reads
 ```
 
 ```
-make all           # run all the targets
+make -f Makefile.mk all           # run all the targets
 ```
 
 This is the result folder after executing ***make all***. "Reads" contains the simulated reads from downloaded genome. And the fastqc reports in 2 folders report_before_fastp and report_after_fastp, respectively.
