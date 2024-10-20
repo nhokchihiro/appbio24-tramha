@@ -130,7 +130,7 @@ stats:
 
 # Cleanup the generated files
 clean:
-	rm -rf ${REF} ${R1} ${R2} ${R3} ${R4} 
+	rm -rf ${REF} ${R1} ${R2} ${R3} ${R4} ncbi_dataset/ refs/
 	rm -f ncbi_dataset.zip
 
 # Only run the targets related to simulating FASTQ output
