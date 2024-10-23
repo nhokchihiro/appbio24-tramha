@@ -3,15 +3,23 @@
 
 All course materials are available at: [AI powered Bioinformatics](https://www.biostarhandbook.com/appbio/)
 
-Course syllabus:
+**Course syllabus:**
 
 Week 1: Get familiar to system and basic UNIX command line
+
 Week 2: Data analysis via UNIX command line
+
 Week 3: Download, generate and visualize GFF files in IGV
+
 Week 4: Scripting and Sequence Ontologies
-Week 5: Simulating FASTQ files
-Week 6: FASTQ Quality Control
+
+Week 5: Simulating FASTQ files from a reference genome
+
+Week 6: FASTQ Quality Control from SRA files
+
 Week 7: Write a Makefile from assignments of Week 5 and Week 6
-Week 8: Generate a BAM alignment file
+
+Week 8: Generate a BAM alignment file from downloaded and simulated data
+
 Week 9: Filter a BAM file
 
