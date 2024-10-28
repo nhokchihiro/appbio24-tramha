@@ -209,7 +209,7 @@ samtools index ${BAM2}
 ```
 
 > [!TIP]
-> To find SAM flags by desired characteristics, we can use (this link)[https://broadinstitute.github.io/picard/explain-flags.html].
+> To find SAM flags by desired characteristics, we can use [this link](https://broadinstitute.github.io/picard/explain-flags.html).
 
 ### 5. Compare the flagstats for your original and your filtered BAM file:
 
