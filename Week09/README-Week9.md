@@ -1,10 +1,3 @@
-This assignment requires writing a Makefile and a markdown report. 
-
-Use the Makefile developed for your previous assignment, which contains targets for creating a BAM file.
-
-Use the BAM file generated using reads from the SRA.
-In your report, show the commands and the answers for each of these questions:
-
 
 > [!IMPORTANT]  
 > Please copy and paste the whole codes in a new Makefile from your directory. If you just download Makefile, it will turn into Makefile.txt instead of a Makefile. If then, you need to modify Makefile.txt into Makefile.mk and the command into ```make -f Makefile.mk all```.
