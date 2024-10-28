@@ -160,11 +160,11 @@ Total unmapped reads did not align with the reference genome:
 
 ```
 @echo "Total primary alignments in the BAM file:"
-samtools view -c -F 256 -F 2048 $(BAM1) #
+samtools view -c -F 256 -F 2048 $(BAM1) #exclude flags 256 SECONDARY and 2048 SUPPLEMENTARY
 @echo "Total secondary alignments in the BAM file:"
-samtools view -c -f 256 $(BAM1)
+samtools view -c -f 256 $(BAM1) #keep require flag 256 SECONDARY
 @echo "Total supplementary alignments in the BAM file:"
-samtools view -c -f 2048 $(BAM1)
+samtools view -c -f 2048 $(BAM1) #keep require flag 2048 SUPPLEMENTARY
 ```
 
 Results:
@@ -182,7 +182,8 @@ Total supplementary alignments in the BAM file:
 
 ```
 @echo "Total properly paired alignments on the reverse strand:"
-samtools view -c -f 1 -f 2 -f 16 -f 64 $(BAM1) view -c -f 4 $(BAM1) #keep require flag 4 UNMAP
+#keep require flag 1 PAIRED, 2 PROPER_PAIRED, 16 REVERSE, 64 READ1
+samtools view -c -f 1 -f 2 -f 16 -f 64 $(BAM1) view -c -f 4 $(BAM1)
 ```
 
 Results:
@@ -194,10 +195,28 @@ Total properly paired alignments on the reverse strand:
 
 ### 4. Make a new BAM file:
 
-that contains only the properly paired primary alignments with a mapping quality of over 10
 ```
 make filter
 ```
+
+Break down "filter" target:
+
+```
+samtools view -b -h -q 10 -f 2 -F 256 -F 2048 $(BAM1) > $(BAM2)
+samtools index ${BAM2}
+```
+
+```
+-b: to create BAM output
+-h: to include the header
+-q 10: keep the reads with mapping quality over 10
+-f 2: keep reads with flag 2 as properly paired reads
+-F 256: exclude reads with flag 256 as secondary reads
+-F 2048: exclude reads with flag 2048 as supplementary reads
+```
+
+> [!TIP]
+> To find SAM flags by desired characteristics, we can use (this link)[https://broadinstitute.github.io/picard/explain-flags.html].
 
 ### 5. Compare the flagstats for your original and your filtered BAM file:
 
@@ -208,7 +227,40 @@ make stats
 Results:
 
 ```
+Stats for original BAM file:
+202827 + 0 in total (QC-passed reads + QC-failed reads)
+200000 + 0 primary
+0 + 0 secondary
+2827 + 0 supplementary
+0 + 0 duplicates
+0 + 0 primary duplicates
+82069 + 0 mapped (40.46% : N/A)
+79242 + 0 primary mapped (39.62% : N/A)
+200000 + 0 paired in sequencing
+100000 + 0 read1
+100000 + 0 read2
+72164 + 0 properly paired (36.08% : N/A)
+78814 + 0 with itself and mate mapped
+428 + 0 singletons (0.21% : N/A)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
 
+Stats for filtered BAM file:
+72149 + 0 in total (QC-passed reads + QC-failed reads)
+72149 + 0 primary
+0 + 0 secondary
+0 + 0 supplementary
+0 + 0 duplicates
+0 + 0 primary duplicates
+72149 + 0 mapped (100.00% : N/A)
+72149 + 0 primary mapped (100.00% : N/A)
+72149 + 0 paired in sequencing
+36079 + 0 read1
+36070 + 0 read2
+72149 + 0 properly paired (100.00% : N/A)
+72149 + 0 with itself and mate mapped
+0 + 0 singletons (0.00% : N/A)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+Thank you.
 ```
-
-https://broadinstitute.github.io/picard/explain-flags.html
