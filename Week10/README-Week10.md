@@ -10,3 +10,11 @@ Verify the variant caller's results by looking at a few example the alignments i
 
 Find examples where the variant caller did not work as expected: false positives, false negatives, etc.
 
+Go over a “checklist” and “score” the variant based on various characteristics.
+
+How many reads carry the variant (depth)
+Are the reads that carry variante on both strands
+Is the variant evenly distributed across all positions
+Is the coverage different around the variant
+Is there another explanation that individually is not better, 
+but overall across all reads would be better (this is a hard decision to make!)
