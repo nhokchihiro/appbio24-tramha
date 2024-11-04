@@ -103,11 +103,11 @@ count:
 	# Count primary, secondary, and supplementary alignments
 	@echo "Counting alignments..."
 	@echo "Total primary alignments in the BAM file:"
-	samtools view -c -F 256 -F 2048 $(BAM1)
+	samtools view -c -F 4 -F 256 -F 2048 $(BAM1)
 	@echo "Total secondary alignments in the BAM file:"
-	samtools view -c -f 256 $(BAM1)
+	samtools view -c -F 4 -f 256 $(BAM1)
 	@echo "Total supplementary alignments in the BAM file:"
-	samtools view -c -f 2048 $(BAM1)
+	samtools view -c -F 4 -f 2048 $(BAM1)
 
 	# Count properly paired alignments on the reverse strand
 	@echo "Total properly paired alignments on the reverse strand:"
@@ -117,7 +117,7 @@ count:
 filter:
 	# Create a new BAM file with filtered alignments
 	@echo "Creating filtered BAM file with only the properly paired primary alignments with a mapping quality of over 10..."
-	samtools view -b -h -q 10 -f 2 -F 256 -F 2048 $(BAM1) > $(BAM2)
+	samtools view -b -h -q 10 -f 2 -F 4 -F 256 -F 2048 $(BAM1) > $(BAM2)
 	samtools index ${BAM2}
 
 # Generate alignment statistics
