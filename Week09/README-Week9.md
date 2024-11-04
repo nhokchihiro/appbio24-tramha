@@ -85,11 +85,11 @@ samtools view -c -f 4 bam/download.bam
 # Count primary, secondary, and supplementary alignments
 echo "Counting alignments..."
 echo "Total primary alignments in the BAM file:"
-samtools view -c -F 256 -F 2048 bam/download.bam
+samtools view -c -F 4 -F 256 -F 2048 bam/download.bam
 echo "Total secondary alignments in the BAM file:"
-samtools view -c -f 256 bam/download.bam
+samtools view -c -F 4 -f 256 bam/download.bam
 echo "Total supplementary alignments in the BAM file:"
-samtools view -c -f 2048 bam/download.bam
+samtools view -c -F 4 -f 2048 bam/download.bam
 # Count properly paired alignments on the reverse strand
 echo "Total properly paired alignments on the reverse strand:"
 samtools view -c -f 1 -f 2 -f 16 -f 64 bam/download.bam
@@ -104,9 +104,6 @@ For example:
 ```
 make all SRR=SRR30984978 ACC=GCF_000240185.1 REF=refs/klebs.fa
 ```
-
-> [!TIP]
-> You can change variable N (The number of simulated reads) and variable L (Lengh of the simulated reads) if wanted.
 
 ### 3. To count alignments in BAM file:
 
@@ -124,7 +121,7 @@ Total unmapped reads did not align with the reference genome:
 120758
 Counting alignments...
 Total primary alignments in the BAM file:
-200000
+79242
 Total secondary alignments in the BAM file:
 0
 Total supplementary alignments in the BAM file:
@@ -153,18 +150,18 @@ Total unmapped reads did not align with the reference genome:
 
 ```
 @echo "Total primary alignments in the BAM file:"
-samtools view -c -F 256 -F 2048 $(BAM1) #exclude flags 256 SECONDARY and 2048 SUPPLEMENTARY
+samtools view -c -F 4 -F 256 -F 2048 $(BAM1) #exclude flags 4 UNMAP, 256 SECONDARY and 2048 SUPPLEMENTARY
 @echo "Total secondary alignments in the BAM file:"
-samtools view -c -f 256 $(BAM1) #keep require flag 256 SECONDARY
+samtools view -c -F 4 -f 256 $(BAM1) #exclude flag 4 UNMAP and keep require flag 256 SECONDARY
 @echo "Total supplementary alignments in the BAM file:"
-samtools view -c -f 2048 $(BAM1) #keep require flag 2048 SUPPLEMENTARY
+samtools view -c -F 4 -f 2048 $(BAM1) #exclude flag 4 UNMAP and keep require flag 2048 SUPPLEMENTARY
 ```
 
 Results:
 
 ```
 Total primary alignments in the BAM file:
-200000
+79242
 Total secondary alignments in the BAM file:
 0
 Total supplementary alignments in the BAM file:
@@ -195,7 +192,7 @@ make filter
 Break down "filter" target:
 
 ```
-samtools view -b -h -q 10 -f 2 -F 256 -F 2048 $(BAM1) > $(BAM2)
+samtools view -b -h -q 10 -f 2 -F 4 -F 256 -F 2048 $(BAM1) > $(BAM2)
 samtools index ${BAM2}
 ```
 
@@ -204,6 +201,7 @@ samtools index ${BAM2}
 -h: to include the header
 -q 10: keep the reads with mapping quality over 10
 -f 2: keep reads with flag 2 as properly paired reads
+-F 4: exclude reads with flag 4 as unmap
 -F 256: exclude reads with flag 256 as secondary reads
 -F 2048: exclude reads with flag 2048 as supplementary reads
 ```
