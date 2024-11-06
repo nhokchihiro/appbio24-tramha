@@ -18,3 +18,10 @@ Is the variant evenly distributed across all positions
 Is the coverage different around the variant
 Is there another explanation that individually is not better, 
 but overall across all reads would be better (this is a hard decision to make!)
+
+> [!WARNING]  
+> This Makefile will run only with paired-end sequencing reads. If your SRA downloaded reads are single end, please modify the Makefile first.
+
+> [!WARNING]  
+> Please install Bioinformatics Toolbox first by running `bio code`.
+
