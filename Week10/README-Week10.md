@@ -1,24 +1,3 @@
-This assignment requires writing a Makefile and a markdown report.
-
-You can reuse the Makefile developed for your previous assignment, which generated a BAM file from SRA reads. You may need to get more data to obtain sufficient coverage over the genome. If the data shows no variants, find another dataset that does.
-
-Call variants on the BAM file and discuss some information on the variants you found.
-
-Your eye is an excellent variant caller.
-
-Verify the variant caller's results by looking at a few example the alignments in the BAM file.
-
-Find examples where the variant caller did not work as expected: false positives, false negatives, etc.
-
-Go over a “checklist” and “score” the variant based on various characteristics.
-
-How many reads carry the variant (depth)
-Are the reads that carry variante on both strands
-Is the variant evenly distributed across all positions
-Is the coverage different around the variant
-Is there another explanation that individually is not better, 
-but overall across all reads would be better (this is a hard decision to make!)
-
 > [!IMPORTANT]  
 > Please install Bioinformatics Toolbox first by running `bio code`.
 
@@ -31,6 +10,9 @@ but overall across all reads would be better (this is a hard decision to make!)
 ## Variant calling in a BAM file
 
 ### 1. Variable settings:
+
+BioProject Accession number: [PRJNA257197](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA257197/)
+Species: Zaire ebolavirus
 
 ```
 # Accession number of the ebola genome.
@@ -64,4 +46,150 @@ BAM=bam/${SAMPLE}.bam
 VCF=vcf/${SAMPLE}.vcf.gz
 ```
 
-make all  ACC=GCF_000063585.1 SRR=SRR28257549 SAMPLE=BMH-2021 REF=refs/botulinum.fa GFF=refs/botulinum.gff
+### 2. Instruction of the Makefile
+
+**a. To see the available targets:**
+
+Run one of the below commands:
+
+```
+make
+```
+
+Results:
+
+```
+# SNP call demonstration
+#
+# ACC=AF086833
+# SRR=SRR1553606
+# SAMPLE=NM042
+# BAM=bam/NM042.bam
+# VCF=vcf/NM042.vcf.gz
+#
+# make bam          # create the BAM alignment file.
+# make vcf          # call the SNPs and produce VCF file.
+# make count        # counting variants in the resulting VCF file.
+# make all          # run all the steps.
+```
+
+**b. To run desired targets:**
+
+Run the command `make [target]`, for example:
+
+```
+make count
+```
+
+Results:
+
+```
+Count all the variant lines in the VCF file:
+     604
+Count all SNPs and indels in the VCF file:
+     604
+      39
+Count all the variants with QUAL >30:
+     604
+```
+
+**c. To run for other ACC and SRR numbers:**
+
+Change the ACC, SRR, SAMPLE, REF and GFF links to the desired biodata, and run the targets. For example:
+
+```
+make all ACC=GCF_000063585.1 SRR=SRR28257549 SAMPLE=BMH-2021 REF=refs/botulinum.fa GFF=refs/botulinum.gff
+```
+
+Results:
+
+```
+
+```
+
+**d. To run several SRRs and generate the VCF file for one specific bioproject:**
+
+d.1/ To get several SRRs of one specific bioproject:
+
+```
+bio search [BioProject number] -H --csv | csvtk cut -f run_accession,sample_alias | head
+```
+
+For example:
+
+```
+bio search PRJNA257197 -H --csv | csvtk cut -f run_accession,sample_alias | head
+```
+
+Results:
+
+```
+run_accession,sample_alias
+SRR1553421,EM104
+SRR1553422,EM104
+SRR1553429,EM112
+SRR1553430,EM112
+SRR1553433,EM115
+SRR1553434,EM115
+SRR1553435,EM119
+SRR1553436,EM119
+SRR1553437,EM120
+```
+
+d.2/ Continually process all desired samples:
+
+```
+make SRR=SRR1972663 SAMPLE=G3966.1 all
+make SRR=SRR1972670 SAMPLE=G3997.1 all
+make SRR=SRR1972720 SAMPLE=G4188.1 all
+```
+
+d.3/ Generate one final VCF file from all above commands:
+
+```
+bcftools merge -0 vcf/*.vcf.gz -O z > vcf/final.vcf.gz
+bcftools index vcf/final.vcf.gz
+bcftools stats vcf/final.vcf.gz > final_stat.txt
+```
+
+### 3. Some information and Statistics of the VCF file:
+
+Run the below command:
+
+```
+make count
+```
+
+Results:
+
+```
+Count all the variant lines in the VCF file:
+     565
+Count all the variants with QUAL >30:
+     565
+Generating statistics for VCF file completely at stat.txt!
+```
+
+Some information of statistics for VCF file:
+
+```
+SN	0	number of samples:	1
+SN	0	number of records:	565
+SN	0	number of no-ALTs:	0
+SN	0	number of SNPs:	565
+SN	0	number of MNPs:	0
+SN	0	number of indels:	0
+SN	0	number of others:	0
+SN	0	number of multiallelic sites:	0
+SN	0	number of multiallelic SNP sites:	0
+```
+
+Thus, it suggests that all variants of this alignment are SNPs, there is no indels and MNPs. All SNPs have quality score > 30.
+
+### 4. Verify the variant caller's results by looking at a few example the alignments in the BAM file.
+
+Find examples where the variant caller did not work as expected: false positives, false negatives, etc.
+
+
+![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week08/Images/Image1.png)
+
