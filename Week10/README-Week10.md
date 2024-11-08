@@ -99,12 +99,6 @@ Change the ACC, SRR, SAMPLE, REF and GFF links to the desired biodata, and run t
 make all ACC=GCF_000063585.1 SRR=SRR28257549 SAMPLE=BMH-2021 REF=refs/botulinum.fa GFF=refs/botulinum.gff
 ```
 
-Results:
-
-```
-
-```
-
 **d. To run several SRRs and generate the VCF file for one specific bioproject:**
 
 d.1/ To get several SRRs of one specific bioproject:
