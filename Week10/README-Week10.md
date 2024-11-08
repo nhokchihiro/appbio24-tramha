@@ -78,19 +78,16 @@ Results:
 Run the command `make [target]`, for example:
 
 ```
-make count
+make vcf
 ```
 
 Results:
 
 ```
-Count all the variant lines in the VCF file:
-     604
-Count all SNPs and indels in the VCF file:
-     604
-      39
-Count all the variants with QUAL >30:
-     604
+make -f src/run/bcftools.mk REF=refs/zaire.fa BAM=bam/NM042.bam VCF=vcf/NM042.vcf.gz run
+echo "Variants is completely recorded in VCF file."
+-rw-r--r--  1 hpbichtram  staff    17K Nov  8 04:41 vcf/NM042.vcf.gz
+Variants is completely recorded in VCF file.
 ```
 
 **c. To run for other ACC and SRR numbers:**
