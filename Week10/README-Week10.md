@@ -62,7 +62,7 @@ Results:
 ```
 # SNP call demonstration
 #
-# ACC=AF086833
+# ACC=GCA_000848505.1
 # SRR=SRR1553606
 # SAMPLE=NM042
 # BAM=bam/NM042.bam
@@ -72,6 +72,7 @@ Results:
 # make vcf          # call the SNPs and produce VCF file.
 # make count        # counting variants in the resulting VCF file.
 # make all          # run all the steps.
+# make clean        # clean the file after every run.
 ```
 
 **b. To run desired targets:**
