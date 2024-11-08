@@ -55,6 +55,7 @@ usage:
 	@echo "# make vcf          # call the SNPs and produce VCF file."
 	@echo "# make count        # counting variants in the resulting VCF file."
 	@echo "# make all          # run all the steps."
+	@echo "# make clean        # clean the file after every run."
 	@echo "#"
 
 # Create the BAM alignment file.
@@ -94,12 +95,12 @@ count:
 	bcftools stats vcf/*.vcf.gz > stat.txt
 
 # Run all the steps.
-all: bam vcf count
+all: bam vcf clean
 	@echo "The progress is completed. Thank you!"
 
 # Remove all the generated files.
 clean:
-	rm -rf refs/ reads/ bam/ vcf/
+	rm -rf refs/ reads/ bam/ vcf/ stat.txt
 
 # These targets do not correspond to files.
 .PHONY: bam vcf count all usage clean
