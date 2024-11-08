@@ -2,8 +2,8 @@
 # Variant calling in a BAM file
 #
 
-# Accession number of the ebola genome.
-ACC=AF086833
+# Accession number of the Zaire ebolavirus genome.
+ACC=GCA_000848505.1
 
 # The reference file.
 REF=refs/zaire.fa
@@ -93,6 +93,9 @@ count:
 	# Count quality variants
 	@echo "Count all the variants with QUAL >30:"
 	bcftools filter -i 'QUAL > 30' ${VCF} | wc -l
+
+	# Statistics of VCF file
+	bcftools stats vcf/*.vcf.gz > stat.txt
 
 # Run all the steps.
 all: bam vcf count
