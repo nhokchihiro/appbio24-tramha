@@ -83,18 +83,14 @@ vcf:
 count:
 	# Counts all variant lines, ignoring headers
 	@echo "Count all the variant lines in the VCF file:"
-	bcftools view ${VCF} | wc -l
-
-	# Count SNPs and indels
-	@echo "Count all SNPs and indels in the VCF file:"
-	bcftools view -v snps ${VCF} | wc -l
-	bcftools view -v indels ${VCF} | wc -l
+	bcftools view ${VCF} | grep -v '^#'| wc -l
 
 	# Count quality variants
 	@echo "Count all the variants with QUAL >30:"
-	bcftools filter -i 'QUAL > 30' ${VCF} | wc -l
+	bcftools filter -i 'QUAL > 30' ${VCF} | grep -v '^#' | wc -l
 
 	# Statistics of VCF file
+	@echo "Generating statistics for VCF file completely at stat.txt!"
 	bcftools stats vcf/*.vcf.gz > stat.txt
 
 # Run all the steps.
