@@ -136,7 +136,7 @@ make SRR=SRR1972670 SAMPLE=G3997.1 all
 make SRR=SRR1972720 SAMPLE=G4188.1 all
 ```
 
-d.3/ Generate one final VCF file from all above commands:
+d.3/ Generate one final VCF file and its statistics from all above commands:
 
 ```
 bcftools merge -0 vcf/*.vcf.gz -O z > vcf/final.vcf.gz
