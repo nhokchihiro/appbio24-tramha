@@ -95,7 +95,7 @@ count:
 	bcftools stats vcf/*.vcf.gz > stat.txt
 
 # Run all the steps.
-all: bam vcf clean
+all: bam vcf
 	@echo "The progress is completed. Thank you!"
 
 # Remove all the generated files.
