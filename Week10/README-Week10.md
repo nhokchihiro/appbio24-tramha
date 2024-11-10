@@ -184,8 +184,24 @@ Thus, it suggests that all variants of this alignment are SNPs, there is no inde
 
 ### 4. Verify the variant caller's results by looking at a few example the alignments in the BAM file.
 
-Find examples where the variant caller did not work as expected: false positives, false negatives, etc.
+a. Examples for false positives: 
 
+- At the position 1881, variant caller determined there is a mismatch replacing G to A. However, information from BAM file presented that A was counted for 133 times, accounted for only 29% of all reads (read depth = 100). Thus, this position needs more investigation since it seems uncertain to be a SNP.
+  
+![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%201.png)
 
-![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week08/Images/Image1.png)
+- At the position 18911, variant caller determined there is a SNP replacing G to A. But the information from BAM file presented that A was only counted for 11 times in the total of 41 times - and the depth was 32 - very few counted times and depth comparing to other postition. Hence, it seems to be a false positive, and we will need more reads to determine the exact SNP at this location.
+
+![Image2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%202.png)
+
+- - At the position 11174, VCF file presented there is a SNP replacing A to G. But the information from BAM file presented that G was only counted for 66 times in the total of 392 times (17%). Therefore, it seems to be a false positive, and we will need more reads to determine the exact SNP at this location.
+
+![Image3](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%204.png)
+
+b. Examples for false negatives:
+
+- At the position 18923, BAM file revealed that there were 19 times counted as T and 2 times counted as G. No SNP was present at this position in VCF file. Since the total reads counted is so small (21 times) comparing to other location (300-400 times), more investigation in this position is essential for evaluating whether there is a SNP.
+
+![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%203.png)
+
 
