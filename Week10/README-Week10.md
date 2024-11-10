@@ -179,6 +179,9 @@ SN	0	number of multiallelic SNP sites:	0
 
 Thus, it suggests that all variants of this alignment are SNPs, there is no indels and MNPs. All SNPs have quality score > 30.
 
+> [!IMPORTANT]  
+> Please run `make clean` after every running session. If you are switching from one SRA number to multiple SRAs of one bioproject or vice versa, please run `make clean` , otherwise, error may happen.
+
 ### 4. Verify the variant caller's results by looking at a few example the alignments in the BAM file.
 
 Find examples where the variant caller did not work as expected: false positives, false negatives, etc.
