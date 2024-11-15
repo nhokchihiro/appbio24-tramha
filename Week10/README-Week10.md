@@ -17,7 +17,7 @@ Species: Zaire ebolavirus
 
 ```
 # Accession number of the ebola genome.
-ACC=AF086833
+ACC=GCA_000848505.1
 
 # The reference file.
 REF=refs/zaire.fa
