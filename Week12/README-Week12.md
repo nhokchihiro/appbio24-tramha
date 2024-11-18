@@ -113,7 +113,7 @@ make variants
 Four new variants prediction files would be generated in `results` folder, including vcf and html files.
 
 
-In our practice, some variant effects resulting from the `results/snpeff.html` are depected as below:
+In our practice, some variant effects resulting from the `results/snpeff.html` are depicted as below:
 
 ![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image1.png)
 
