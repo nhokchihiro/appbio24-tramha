@@ -128,13 +128,16 @@ In our practice, some variant effects resulting from the `results/snpeff.html` a
 ![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image4.png)
 
 - Above are the **codon changes table** and **amino acids changes table**. The codons/amino acids at rows are modified by the codons/amino acids at columns. From these table, we can identified some major SNPs changes, such as:
-      + There are 4 times codon AAT changed into AGT, which contribute to the replacing of amino acid Asn to Ser (missense mutation).
-      + There is 1 time codon CAG changed into TAG, which leading to the modification of amino acid Gln to stop codon (nonsense mutation).
-      + There are 8 times codon ACT changed into ACC, which keeping codon Thr still as the same (silent mutation).
+  
+  + There are 4 times codon AAT changed into AGT, which contribute to the replacing of amino acid Asn to Ser (missense mutation).
+  
+  + There is 1 time codon CAG changed into TAG, which leading to the modification of amino acid Gln to stop codon (nonsense mutation).
+  
+  + There are 8 times codon ACT changed into ACC, which keeping codon Thr still as the same (silent mutation).
 
-> [!TIPS]  
-> We can utilize this command line for indicating the effect of codon changes into amino acid changes:
-> `bio fasta [reference codon][changed codon] -translate`.
+
+> [!TIP]  
+> We can utilize `bio fasta [reference codon][changed codon] -translate` for indicating the effect of codon changes into amino acid changes:
 
 For example: 
 
