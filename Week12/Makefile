@@ -71,7 +71,6 @@ bam:
 	make -f src/run/sra.mk SRR=${SRR} R1=${R1} R2=${R2} N=${N} run
 
 	# Align the reads to the reference genome. 
-	# Use a sample name in the readgroup.
 	make -f src/run/bwa.mk SM=${SAMPLE} REF=${REF} R1=${R1} R2=${R2} BAM=${BAM} run stats
 	@echo "The alignment is done."
 
@@ -82,11 +81,13 @@ vcf:
 
 # Variant effect prediction.
 variants:
-	# Build the custom database
+	# To build the custom database match with our REF.
 	make -f src/run/snpeff.mk GFF=${GFF} REF=${REF} build
 
-	# Run snpEff using the custom database
+	# Run snpEff for variant prediction.
 	make -f src/run/snpeff.mk GFF=${GFF} REF=${REF} VCF=${VCF} run
+
+	@echo "Variant effect prediction by snpEff is finished."
 
 # Run all the steps.
 all: bam vcf variants
