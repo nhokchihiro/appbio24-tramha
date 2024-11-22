@@ -7,7 +7,7 @@
 > [!WARNING]  
 > This Makefile will run only with paired-end sequencing reads. If your SRA downloaded reads are single end, please modify the Makefile first.
 
-## Variant calling in a BAM file
+## Effects of variants prediction
 
 ### 1. Variable settings:
 
