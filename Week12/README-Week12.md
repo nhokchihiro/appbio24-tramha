@@ -1,17 +1,3 @@
-This assignment requires the presence of a Makefile, a README.md markdown file, and a design.csv file.
-
-Please add all three files to your repository and submit the link to your repository.
-
-You may reuse the Makefile created in previous assignments.
-
-Create a Makefile that can produce a VCF file by downloading a reference genome, indexing it, and then downloading fastq files from SRA, aligning them to the reference and calling variants.
-Create a README.md file that explains how to run the Makefile
-Collect a set of samples from the SRA database that match your genome.
-Create a design.csv file that lists the samples to be processed.
-Using GNU parallel or any other method of your choice run the Makefile on all (or a a subset) of the samples
-Merge the resulting VCF files into a single one.
-Discuss what you see in your VCF file.
-
 > [!IMPORTANT]  
 > Please install Bioinformatics Toolbox first by running `bio code`.
 
@@ -21,37 +7,35 @@ Discuss what you see in your VCF file.
 > [!WARNING]  
 > This Makefile will run only with paired-end sequencing reads. If your SRA downloaded reads are single end, please modify the Makefile first.
 
-## Variant calling in a BAM file
+## An automatic VCF calling pipeline
 
 ### 1. Variable settings:
 
-BioProject Accession number: [PRJNA257197](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA257197/)
+BioProject Accession number: [PRJNA832888](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA832888/)
 
-Species: Zaire ebolavirus
+Species: Rabies lyssavirus
 
 ```
-# Accession number of the ebola genome.
-ACC=GCA_000848505.1
+# Accession number of the Lyssavirus rabies genome.
+ACC=GCF_000859625.1
 
 # The reference file.
-REF=refs/zaire.fa
+REF=refs/rabies.fa
 
 # The GFF file.
-GFF=refs/zaire.gff
+GFF=refs/rabies.gff
 
 # The sequencing read accession number.
-SRR=SRR1553606
+SRR=SRR18960173
 
 # The number of reads to get
 N=100000
 
-# The name of the sample (see: bio search SRR1553425)
-SAMPLE=NM042
+# The name of the sample 
+SAMPLE=Rab-7-4
 
-# The path to read 1
+# The path to SRA reads
 R1=reads/${SAMPLE}_1.fastq
-
-# The path to read 2
 R2=reads/${SAMPLE}_2.fastq
 
 # The resulting BAM file.
@@ -61,7 +45,21 @@ BAM=bam/${SAMPLE}.bam
 VCF=vcf/${SAMPLE}.vcf.gz
 ```
 
-### 2. Instruction of the Makefile
+### 2. Design file creation
+
+After identified your BioProject Accession number, run the command line `bio search [project number] -H --csv > design.csv` to collect all desired SRR numbers.
+
+For example:
+
+```
+bio search PRJNA832888 -H --csv > design.csv
+```
+
+An alternative way is to generate your own design file with interested SRA numbers including at least two columns: `run_accession` and `sample_alias`. Illustration as below:
+
+![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image1.png)
+
+### 3. Instruction of the Makefile
 
 **a. To see the available targets:**
 
@@ -76,15 +74,15 @@ Results:
 ```
 # SNP call demonstration
 #
-# ACC=GCA_000848505.1
-# SRR=SRR1553606
-# SAMPLE=NM042
-# BAM=bam/NM042.bam
-# VCF=vcf/NM042.vcf.gz
+# ACC=GCF_000859625.1
+# SRR=SRR18960173
+# SAMPLE=Rab-7-4
+# BAM=bam/Rab-7-4.bam
+# VCF=vcf/Rab-7-4.vcf.gz
 #
 # make bam          # create the BAM alignment file.
 # make vcf          # call the SNPs and produce VCF file.
-# make count        # counting variants in the resulting VCF file.
+# make merge        # merge all VCF files together if running the automatic pipeline.
 # make all          # run all the steps.
 # make clean        # clean the file after every run.
 ```
@@ -97,15 +95,6 @@ Run the command `make [target]`, for example:
 make vcf
 ```
 
-Results:
-
-```
-make -f src/run/bcftools.mk REF=refs/zaire.fa BAM=bam/NM042.bam VCF=vcf/NM042.vcf.gz run
-echo "Variants is completely recorded in VCF file."
--rw-r--r--  1 hpbichtram  staff    17K Nov  8 04:41 vcf/NM042.vcf.gz
-Variants is completely recorded in VCF file.
-```
-
 **c. To run for other ACC and SRR numbers:**
 
 Change the ACC, SRR, SAMPLE, REF and GFF links to the desired biodata, and run the targets. For example:
@@ -114,108 +103,69 @@ Change the ACC, SRR, SAMPLE, REF and GFF links to the desired biodata, and run t
 make all ACC=GCF_000063585.1 SRR=SRR28257549 SAMPLE=BMH-2021 REF=refs/botulinum.fa GFF=refs/botulinum.gff
 ```
 
-**d. To run several SRRs and generate the VCF file for one specific bioproject:**
+**d. To conduct an automatic VCF calling pipeline for several SRAs from design.csv:**
 
-d.1/ To get several SRRs of one specific bioproject:
+Using GNU parallel, run the command below to see how many SRR numbers will be run: 
 
 ```
-bio search [BioProject number] -H --csv | csvtk cut -f run_accession,sample_alias | head
+cat design.csv | head -10 | \
+    parallel --dry-run --lb -j 4 --colsep , --header : \
+    make all SRR={run_accession} SAMPLE={sample_alias}
 ```
+
+Results:
+
+```
+make all SRR=SRR18960171 SAMPLE=Rab-35-1-4
+make all SRR=SRR18960170 SAMPLE=Rab-35-2-4
+make all SRR=SRR18960172 SAMPLE=Rab-8-4
+make all SRR=SRR18960173 SAMPLE=Rab-7-4
+make all SRR=SRR18960174 SAMPLE=Rab-1-4
+```
+
+Run the command below to execute the automatic VCF calling pipeline: 
+
+```
+cat design.csv | head -10 | \
+    parallel --lb -j 4 --colsep , --header : \
+    make all SRR={run_accession} SAMPLE={library_name}
+```
+
+> [!TIP]  
+> Please run `make clean` after every running session. If you are switching from one SRA number to multiple SRAs of one bioproject or vice versa, please run `make clean` , otherwise, error may happen.
+
+### 4. Discussion of the VCF file:
+
+To see the statistics of VCF file, run the command line `bcftools stats [VCF file] > stat.txt`:
 
 For example:
 
 ```
-bio search PRJNA257197 -H --csv | csvtk cut -f run_accession,sample_alias | head
+bcftools stats merged.vcf.gz > stat.txt
 ```
 
-Results:
+Some information of statistics for merged VCF file:
 
 ```
-run_accession,sample_alias
-SRR1553421,EM104
-SRR1553422,EM104
-SRR1553429,EM112
-SRR1553430,EM112
-SRR1553433,EM115
-SRR1553434,EM115
-SRR1553435,EM119
-SRR1553436,EM119
-SRR1553437,EM120
-```
-
-d.2/ Continually process all desired samples:
-
-```
-make SRR=SRR1972663 SAMPLE=G3966.1 all
-make SRR=SRR1972670 SAMPLE=G3997.1 all
-make SRR=SRR1972720 SAMPLE=G4188.1 all
-```
-
-d.3/ Generate one final VCF file and its statistics from all above commands:
-
-```
-bcftools merge -0 vcf/*.vcf.gz -O z > vcf/final.vcf.gz
-bcftools index vcf/final.vcf.gz
-bcftools stats vcf/final.vcf.gz > final_stat.txt
-```
-
-### 3. Some information and Statistics of the VCF file:
-
-Run the below command:
-
-```
-make count
-```
-
-Results:
-
-```
-Count all the variant lines in the VCF file:
-     565
-Count all the variants with QUAL >30:
-     565
-Generating statistics for VCF file completely at stat.txt!
-```
-
-Some information of statistics for VCF file:
-
-```
-SN	0	number of samples:	1
-SN	0	number of records:	565
+# SN	[2]id	[3]key	[4]value
+SN	0	number of samples:	5
+SN	0	number of records:	1012
 SN	0	number of no-ALTs:	0
-SN	0	number of SNPs:	565
+SN	0	number of SNPs:	1011
 SN	0	number of MNPs:	0
-SN	0	number of indels:	0
+SN	0	number of indels:	1
 SN	0	number of others:	0
-SN	0	number of multiallelic sites:	0
-SN	0	number of multiallelic SNP sites:	0
+SN	0	number of multiallelic sites:	7
+SN	0	number of multiallelic SNP sites:	7
 ```
 
-Thus, it suggests that all variants of this alignment are SNPs, there is no indels and MNPs. All SNPs have quality score > 30.
+Thus, it suggests that there are 5 samples variants of this alignment. Most of them are SNPs, and there is one indels.
 
-> [!IMPORTANT]  
-> Please run `make clean` after every running session. If you are switching from one SRA number to multiple SRAs of one bioproject or vice versa, please run `make clean` , otherwise, error may happen.
+Since these are the genome sequencing of the rabies virus in the territory of the Republic of Kazakhstan within the same collection duration, these virus samples exhibit the high degree of similarity in their VCF. However, there are still some rare variants which only appears in some samples. For example, the variant at position 10,031 alter G to A only appears in sample SRR18960172 (Image 4).
 
-### 4. Verify the variant caller's results by looking at a few example the alignments in the BAM file.
+![Image2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image2.png)
 
-**a. Examples for false positives:**
+![Image3](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image3.png)
 
-- At the position 1881, variant caller determined there is a mismatch replacing G to A. However, information from BAM file presented that A was counted for 133 times, accounted for only 29% of all reads (read depth = 100). Thus, this position needs more investigation since it seems uncertain to be a SNP.
-  
-![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%201.png)
+![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image4.png)
 
-- At the position 18911, variant caller determined there is a SNP replacing G to A. But the information from BAM file presented that A was only counted for 11 times in the total of 41 times - and the depth was 32 - very few counted times and depth comparing to other postition. Hence, it seems to be a false positive, and we will need more reads to determine the exact SNP at this location.
-
-![Image2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%202.png)
-
-- At the position 11174, VCF file presented there is a SNP replacing A to G. But the information from BAM file presented that G was only counted for 66 times in the total of 392 times (17%). Therefore, it seems to be a false positive, and we will need more reads to determine the exact SNP at this location.
-
-![Image3](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%204.png)
-
-**b. Examples for false negatives:**
-
-- At the position 18923, BAM file revealed that there were 19 times counted as T and 2 times counted as G. No SNP was present at this position in VCF file. Since the total reads counted is so small (21 times) comparing to other location (300-400 times), more investigation in this position is essential for evaluating whether there is a SNP.
-
-![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week10/Images/Image%203.png)
-
-- I think perhaps this SRA file was filtered so well, there is not much false negative variants in the file.
