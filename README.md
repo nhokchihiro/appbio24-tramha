@@ -5,7 +5,7 @@ All course materials are available at: [AI powered Bioinformatics](https://www.b
 
 **Course syllabus:**
 
-(Week 1)[https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week01]: Get familiar to system and basic UNIX command line 
+[Week 1](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week01): Get familiar to system and basic UNIX command line 
 
 Week 2: Data analysis via UNIX command line
 
