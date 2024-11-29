@@ -5,7 +5,7 @@ All course materials are available at: [AI powered Bioinformatics](https://www.b
 
 **Course syllabus:**
 
-Week 1: Get familiar to system and basic UNIX command line
+Week 1: Get familiar to system and basic UNIX command line [Assignment](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week01)
 
 Week 2: Data analysis via UNIX command line
 
@@ -23,3 +23,8 @@ Week 8: Generate a BAM alignment file from downloaded and simulated data
 
 Week 9: Filter a BAM file
 
+Week 10: Generate a variant call file
+
+Week 11: Establish the effects of variants
+
+Week 12: Automate a VCF calling pipeline
