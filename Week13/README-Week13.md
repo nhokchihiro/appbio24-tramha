@@ -68,7 +68,7 @@ make design
 
 **a. To see the available targets:**
 
-Run one of the below commands:
+Run the below commands:
 
 ```
 make
@@ -103,7 +103,7 @@ make data
 
 **c. To run for other ACC and SRR numbers:**
 
-Change the ACC, SRR, SAMPLE, REF and GFF links to the desired biodata, and run the targets. Remember to create new design file for every new ACC. For example:
+Change the ACC, REF, GTF, and DESIGN links to the desired biodata, and run the targets. Remember to create new design file for your new run. For example:
 
 ```
 make all ACC=GCF_000063585.1 REF=refs/botulinum.fa GTF=refs/botulinum.gtf DESIGN=design.csv
@@ -124,8 +124,8 @@ Results:
 ```
 make all SRR=ERR2097149 SAMPLE=RV2980
 make all SRR=ERR2097150 SAMPLE=RV2981
-make all SRR=ERR2097161 SAMPLE=Sub5790
 make all SRR=ERR2097160 SAMPLE='Sub 5792'
+make all SRR=ERR2097161 SAMPLE=Sub5790
 ```
 
 Run the command below to execute the automatic RNA-Seq count matrix generation pipeline: 
@@ -133,7 +133,7 @@ Run the command below to execute the automatic RNA-Seq count matrix generation p
 ```
 cat design.csv | head -10 | \
     parallel --lb -j 4 --colsep , --header : \
-    make data SRR={sample} SAMPLE={group}
+    make all SRR={sample} SAMPLE={group}
 ```
 
 ***In this Makefile, since I already included the automatic pipeline, you just need to run this command:***
@@ -149,11 +149,11 @@ make all
 
 Firstly, to check if the alignment are from RNA-seq data, we are required to utilize IGV. Open the IGV, load the genome refs/rabies.fa file and the GTF file refs/rabies.gtf. Then load two files, including the bam file and bw file for every SRR number. For example, I load two SRR numbers as below.
 
-Images from the bam/ERR2097149.bam and the bam/ERR2097149.bw files:
+Image from the bam/ERR2097149.bam and the bam/ERR2097149.bw files:
 
 ![Image2](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week13/Images/Image2.png)
 
-Images from the bam/ERR2097150.bam and the bam/ERR2097150.bw files:
+Image from the bam/ERR2097150.bam and the bam/ERR2097150.bw files:
 
 ![Image3](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week13/Images/Image3.png)
 
