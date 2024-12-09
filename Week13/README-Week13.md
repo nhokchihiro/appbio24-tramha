@@ -122,10 +122,10 @@ cat design.csv | head -10 | \
 Results:
 
 ```
-make all SRR=ERR2097150 SAMPLE=RV2981
-make all SRR=ERR2097160 SAMPLE='Sub 5792'
-make all SRR=ERR2097161 SAMPLE=Sub5790
 make all SRR=ERR2097149 SAMPLE=RV2980
+make all SRR=ERR2097150 SAMPLE=RV2981
+make all SRR=ERR2097161 SAMPLE=Sub5790
+make all SRR=ERR2097160 SAMPLE='Sub 5792'
 ```
 
 Run the command below to execute the automatic RNA-Seq count matrix generation pipeline: 
@@ -167,12 +167,12 @@ cat res/counts-hisat.csv
 Result information:
 
 ```
-name,gene,ERR2097150,ERR2097160,ERR2097161,ERR2097149
-RABVgp1,RABVgp1,416,1663,192,20
-RABVgp2,RABVgp2,269,821,137,16
-RABVgp3,RABVgp3,220,562,101,5
-RABVgp4,RABVgp4,416,962,179,20
-RABVgp5,RABVgp5,2652,7257,891,109
+name,gene,ERR2097149,ERR2097150,ERR2097160,ERR2097161
+RABVgp1,RABVgp1,20,416,1663,192
+RABVgp2,RABVgp2,16,269,821,137
+RABVgp3,RABVgp3,5,220,562,101
+RABVgp4,RABVgp4,20,416,962,179
+RABVgp5,RABVgp5,109,2652,7257,891
 ```
 
 Or if you open the counts-hisat.csv file:
