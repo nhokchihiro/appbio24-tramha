@@ -1,5 +1,5 @@
 #
-# Generate an RNA-Seq count matrix.
+# An automatic RNA-Seq count matrix generation pipeline.
 #
 
 # Accession number of the Lyssavirus rabies genome.
