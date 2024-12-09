@@ -177,7 +177,7 @@ RABVgp5,RABVgp5,2652,7257,891,109
 
 Or if you open the counts-hisat.csv file:
 
-![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image4.png)
+![Image4](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week13/Images/Image4.png)
 
 ***Discussion:***
 
