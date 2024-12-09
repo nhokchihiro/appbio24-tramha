@@ -66,10 +66,10 @@ design:
 	# Group column is sample_alias.
 	@cat << EOF > ${DESIGN}
 	sample,group
+	ERR2097149,RV2980
 	ERR2097150,RV2981
 	ERR2097160,Sub 5792
 	ERR2097161,Sub5790
-	ERR2097149,RV2980
 	EOF
 
 	# Show the design file.
