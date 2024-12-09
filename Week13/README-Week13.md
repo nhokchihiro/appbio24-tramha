@@ -1,5 +1,5 @@
 > [!IMPORTANT]  
-> Please install Bioinformatics Toolbox first by running `bio code`. Additionally, for this weekly assignment, you also need to set up the stats environment. Please look at this [link](https://www.biostarhandbook.com/appbio/methods/stats/).
+> Please install *Bioinformatics Toolbox* first by running `bio code`. Additionally, for this weekly assignment, you also need to set up the *stats* environment. Please look at this [link](https://www.biostarhandbook.com/appbio/methods/stats/).
 
 > [!IMPORTANT]
 > Please copy and paste the whole codes in a new Makefile from your directory. If you just download Makefile, it will turn into Makefile.txt instead of a Makefile. If then, you need to modify Makefile.txt into Makefile.mk and the command into make -f Makefile.mk all
