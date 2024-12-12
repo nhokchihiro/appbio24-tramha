@@ -56,7 +56,13 @@ bio search PRJEB22173 -H --csv > design.csv
 
 **b. Method 2:** An alternative way is to generate your own design file with interested SRA numbers including at least two columns: sample (as `run_accession`) and group (as `sample_alias`). Illustration as below:
 
-![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week13/Images/Image1.png)
+```
+sample,group
+ERR2097149,RV2980
+ERR2097150,RV2981
+ERR2097160,Sub 5792
+ERR2097161,Sub5790
+```
 
 **c. Method 3:** You just neeed to simply run the below command to generate a design file related to this Makefile.
 
