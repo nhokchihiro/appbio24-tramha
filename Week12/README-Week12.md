@@ -57,7 +57,14 @@ bio search PRJNA832888 -H --csv > design.csv
 
 An alternative way is to generate your own design file with interested SRA numbers including at least two columns: `run_accession` and `sample_alias`. Illustration as below:
 
-![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week12/Images/Image1.png)
+```
+run_accession,sample_alias
+SRR18960170,Rab-35-2-4
+SRR18960172,Rab-8-4
+SRR18960173,Rab-7-4
+SRR18960174,Rab-1-4
+SRR18960171,Rab-35-1-4
+```
 
 ### 3. Instruction of the Makefile
 
