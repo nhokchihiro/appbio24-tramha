@@ -30,3 +30,6 @@ All course materials are available at: [AI powered Bioinformatics](https://www.b
 [Week 12](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week12): Automate a VCF calling pipeline
 
 [Week 13](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week13): Generate an RNA-Seq count matrix
+
+[Week 14](https://github.com/nhokchihiro/appbio24-tramha/tree/main/Week14): Perform a differential RNA expression analysis
+
