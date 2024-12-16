@@ -30,6 +30,8 @@ usage:
 # Create the design and simulated count files.
 simulate:
 	mkdir -p files
+
+	# Generate two groups of samples, each has 4 duplicates and 40,000 genes.
 	Rscript src/r/simulate_counts.r -n 40000 -r 4 -d files/design.csv -o files/counts.csv
 
 # Conduct differential expression based on design.csv and counts.csv.
