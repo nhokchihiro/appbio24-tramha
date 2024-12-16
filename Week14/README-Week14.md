@@ -1,15 +1,3 @@
-Your submission should include a readme, a makefile, and a design file.
-
-Perform a differential expression analysis of a count matrix.
-
-Take a count matrix, this count matrix may be one generated in a previous assignment or one that simulated.
-
-Use method to identify genes/transcripts that show differential expression.
-
-Draw a PCA plot and a heatmap for these genes.
-
-Discuss the results. How many genes have you found. What kind of expression levels can you observe. How reliable does your data seem?
-
 > [!IMPORTANT]  
 > Please install *Bioinformatics Toolbox* first by running `bio code` within the same folder which contains the Makefile. Additionally, for this weekly assignment, you also need to set up the *stats* environment. Please look at this [link](https://www.biostarhandbook.com/appbio/methods/stats/).
 
@@ -116,6 +104,7 @@ Results:
 
 ```
 mkdir -p files
+# Generate two groups of samples, each has 4 duplicates and 40,000 genes.
 Rscript src/r/simulate_counts.r -n 40000 -r 4 -d files/design.csv -o files/counts.csv
 # Initializing  PROPER ... done
 # PROspective Power Evaluation for RNAseq 
@@ -149,6 +138,34 @@ The image of heatmap:
 
 ***Discussion:***
 
-- DESeq2 was employed for the differential expression analysis.
+- DESeq2 was employed for the differential expression analysis. 
 
-- 
+- While running `make analysis`, results showed as below:
+
+```
+# Input: 40000 rows
+# Removed: 26990 rows
+# Fitted: 13010 rows
+# Significant PVal: 864 ( 6.6 %)
+# Significant FDRs: 408 ( 3.1 %)
+# Results: files/deseq2.csv
+
+# Tool: evaluate_results.r 
+# 507 in files/counts.csv 
+# 408 in files/deseq2.csv 
+# 350 found in both
+# 157 found only in files/counts.csv 
+# 58 found only in files/deseq2.csv 
+# Summary: files/summary.csv
+```
+
+- Results indicated that there were 40,000 genes were generated during the RNA-seq count simulation. However, 26,990 genes were removed, perhaps due to low differential expression. Only 13,010 genes were included after the filtering.
+Among those genes, there were 864 genes (6.6%) had a p-value below the significance threshold, indicating these genes are significantly differentially expressed between two groups of samples. Other 408 genes (3.1%) have an significant adjusted p-value (FDR), indicating that after correcting for multiple testing, these genes remain crucial.
+
+- There were 507 genes in the count matrix and 408 genes found significantly differentially expressed after DESeq2 analysis.
+
+- Comparing between two files counts.csv and deseq2.csv, we can see that there was an overlap of 305 genes found in both files. There were 157 false negatives, which indicate genes were differentially expressed but deseq2 did not find. 58 genes were expected by deseq2 but were not.
+
+- PCA plot presented a clear separation between two group, suggesting that the simulated experimental condition has a strong effect on gene expression. Both upregulated and downregulated genes could be seen through the heatmap.
+
+- This simulated data appears to be reliable by looking at the the overlap between the count matrix and DESeq2 results. 
