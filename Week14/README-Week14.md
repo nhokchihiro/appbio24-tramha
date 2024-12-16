@@ -27,7 +27,8 @@ SRR31594258,B
 SRR31594257,B
 SRR31594256,B
 ```
-Below is a part of the generated count matrix:
+
+This is a part of the generated count matrix:
 
 ![Image1](https://github.com/nhokchihiro/appbio24-tramha/blob/main/Week14/Images/Image1.png)
 
